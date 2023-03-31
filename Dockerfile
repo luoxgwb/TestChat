@@ -27,7 +27,7 @@ RUN apt-get update  \
 
 WORKDIR ${BUILD_PREFIX}
 
-ADD ./entrypoint.sh /entrypoint.sh
+ADD /docker/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh \
     && groupadd -r noroot \
