@@ -74,7 +74,11 @@ available_setting = {
     # channel配置
     "channel_type": "wx", # 通道类型，支持wx,wxy和terminal
 
-
+    # bot配置
+    # 配置 botId，用于区分不同服务器
+    "bot_id": "",
+    # 配置 bot 限制次数，次数到了之后不允许再对话
+    "bot_limit_count": 1000
 }
 
 
