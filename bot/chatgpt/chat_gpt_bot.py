@@ -26,6 +26,7 @@ class ChatGPTBot(Bot,OpenAIImage):
         if conf().get('rate_limit_chatgpt'):
             self.tb4chatgpt = TokenBucket(conf().get('rate_limit_chatgpt', 20))
         
+        logger.info(conf().get("bot_id"))
         self.sessions = SessionManager(ChatGPTSession, model= conf().get("model") or "gpt-3.5-turbo")
 
     def reply(self, query, context=None):
