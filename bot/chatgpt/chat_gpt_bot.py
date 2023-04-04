@@ -99,9 +99,9 @@ class ChatGPTBot(Bot, OpenAIImage):
                     "[CHATGPT] reply {} used 0 tokens.".format(reply_content))
             self.botCount += 1
             if (self.botlimitcount - self.botCount) < 50:
-                reply.content += "\r\n----------------\r\n总计次数{}}次，剩余{}".format(self.botlimitcount, self.botlimitcount - self.botCount)
+                reply.content += "\r\n----------------\r\n总计次数{}次，剩余{}".format(self.botlimitcount, self.botlimitcount - self.botCount)
             elif (self.botCount % 100) == 0:
-                reply.content += "\r\n----------------\r\n总计次数{}}次，剩余{}".format(self.botlimitcount, self.botlimitcount - self.botCount)
+                reply.content += "\r\n----------------\r\n总计次数{}次，剩余{}".format(self.botlimitcount, self.botlimitcount - self.botCount)
 
             try:
                 tempDb = self.db.cursor()
