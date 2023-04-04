@@ -49,6 +49,7 @@ class ChatGPTBot(Bot, OpenAIImage):
 
         botCountRow = tempDb.fetchone()
         self.botCount = botCountRow[0]
+        
         logger.info("botcount:{}".format(self.botCount))
 
         tempDb.close()
