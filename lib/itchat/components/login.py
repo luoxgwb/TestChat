@@ -118,6 +118,7 @@ def get_QRuuid(self):
     data = re.search(regx, r.text)
     if data and data.group(1) == '200':
         self.uuid = data.group(2)
+        logger.info('qrcoce Url:' + "https://login.weixin.qq.com/l/" + self.uuid)
         return self.uuid
 
 
