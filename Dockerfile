@@ -15,11 +15,11 @@ RUN apt-get update  \
     && export BUILD_GITHUB_TAG=${CHATGPT_ON_WECHAT_VER:-`curl -sL "https://api.github.com/repos/luoxgwb/TestChat/releases/latest" | \
         grep '"tag_name":' | \
         sed -E 's/.*"([^"]+)".*/\1/'`} \
-    && wget -t 3 -T 30 -nv -O chatgpt-on-wechat-${BUILD_GITHUB_TAG}.tar.gz \
+    && wget -t 3 -T 30 -nv -O TestChat-${BUILD_GITHUB_TAG}.tar.gz \
             https://github.com/luoxgwb/TestChat/archive/refs/tags/${BUILD_GITHUB_TAG}.tar.gz \
-    && tar -xzf chatgpt-on-wechat-${BUILD_GITHUB_TAG}.tar.gz \
-    && mv chatgpt-on-wechat-${BUILD_GITHUB_TAG} ${BUILD_PREFIX} \
-    && rm chatgpt-on-wechat-${BUILD_GITHUB_TAG}.tar.gz \
+    && tar -xzf TestChat-${BUILD_GITHUB_TAG}.tar.gz \
+    && mv TestChat-${BUILD_GITHUB_TAG} ${BUILD_PREFIX} \
+    && rm TestChat-${BUILD_GITHUB_TAG}.tar.gz \
     && cd ${BUILD_PREFIX} \
     && cp config-template.json ${BUILD_PREFIX}/config.json \
     && /usr/local/bin/python -m pip install --no-cache --upgrade pip \
