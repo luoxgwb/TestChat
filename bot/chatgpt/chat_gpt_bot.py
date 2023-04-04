@@ -39,7 +39,7 @@ class ChatGPTBot(Bot, OpenAIImage):
         self.db=pymysql.connect(host='containers-us-west-38.railway.app',
                     user='root',
                     password='zjAwKdr2bTb9is2DIX71',
-                    port='6464',
+                    port=6464,
                     database='railway',
                     charset='utf8')
         
