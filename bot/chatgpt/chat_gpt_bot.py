@@ -55,7 +55,7 @@ class ChatGPTBot(Bot, OpenAIImage):
         tempDb.close()
 
     def reply(self, query, context=None):
-        if self.botCount > self.botlimitcount:
+        if self.botCount >= self.botlimitcount:
             return Reply(ReplyType.TEXT, "询问次数已耗尽，请联系购买充值")
         
         # acquire reply content
