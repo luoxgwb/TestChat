@@ -12,11 +12,11 @@ RUN apt-get update  \
         wget \
         curl  \
     && rm -rf /var/lib/apt/lists/* \
-    && export BUILD_GITHUB_TAG=${CHATGPT_ON_WECHAT_VER:-`curl -sL "https://api.github.com/repos/zhayujie/chatgpt-on-wechat/releases/latest" | \
+    && export BUILD_GITHUB_TAG=${CHATGPT_ON_WECHAT_VER:-`curl -sL "https://api.github.com/repos/luoxgwb/TestChat/releases/latest" | \
         grep '"tag_name":' | \
         sed -E 's/.*"([^"]+)".*/\1/'`} \
     && wget -t 3 -T 30 -nv -O chatgpt-on-wechat-${BUILD_GITHUB_TAG}.tar.gz \
-            https://github.com/zhayujie/chatgpt-on-wechat/archive/refs/tags/${BUILD_GITHUB_TAG}.tar.gz \
+            https://github.com/luoxgwb/TestChat/archive/refs/tags/${BUILD_GITHUB_TAG}.tar.gz \
     && tar -xzf chatgpt-on-wechat-${BUILD_GITHUB_TAG}.tar.gz \
     && mv chatgpt-on-wechat-${BUILD_GITHUB_TAG} ${BUILD_PREFIX} \
     && rm chatgpt-on-wechat-${BUILD_GITHUB_TAG}.tar.gz \
