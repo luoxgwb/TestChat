@@ -106,6 +106,7 @@ class ChatGPTBot(Bot, OpenAIImage):
             try:
                 tempDb = self.db.cursor()
                 tempDb.execute("INSERT INTO BotLog (BotId, CreateTime, Query) VALUES (%s,%s,%s)", (self.botid, datetime.now(), reply.content))
+                self.db.commit()
             except Exception as e:
                 logger.error("insert into sql failed")
                 logger.exception(e)

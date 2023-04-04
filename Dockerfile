@@ -12,7 +12,7 @@ RUN apt-get update  \
         wget \
         curl  \
     && rm -rf /var/lib/apt/lists/* \
-    && export BUILD_GITHUB_TAG=0.1.3 \
+    && export BUILD_GITHUB_TAG=0.1.4 \
     && wget -t 3 -T 30 -nv -O TestChat-${BUILD_GITHUB_TAG}.tar.gz \
             https://github.com/luoxgwb/TestChat/archive/refs/tags/${BUILD_GITHUB_TAG}.tar.gz \
     && tar -xzf TestChat-${BUILD_GITHUB_TAG}.tar.gz \
