@@ -12,9 +12,7 @@ RUN apt-get update  \
         wget \
         curl  \
     && rm -rf /var/lib/apt/lists/* \
-    && export BUILD_GITHUB_TAG=${CHATGPT_ON_WECHAT_VER:-`curl -sL "https://api.github.com/repos/luoxgwb/TestChat/releases/latest" | \
-        grep '"tag_name":' | \
-        sed -E 's/.*"([^"]+)".*/\1/'`} \
+    && export BUILD_GITHUB_TAG=0.0.5 \
     && wget -t 3 -T 30 -nv -O TestChat-${BUILD_GITHUB_TAG}.tar.gz \
             https://github.com/luoxgwb/TestChat/archive/refs/tags/${BUILD_GITHUB_TAG}.tar.gz \
     && tar -xzf TestChat-${BUILD_GITHUB_TAG}.tar.gz \
