@@ -45,7 +45,7 @@ class ChatGPTBot(Bot, OpenAIImage):
         
         tempDb = self.db.cursor()
 
-        tempDb.execute("select count(*) from BotLogs where BotId = %s", self.botid)
+        tempDb.execute("select count(*) from BotLog where BotId = %s", self.botid)
 
         botCountRow = tempDb.fetchone()
         self.botCount = botCountRow[0]
@@ -105,7 +105,7 @@ class ChatGPTBot(Bot, OpenAIImage):
 
             try:
                 tempDb = self.db.cursor()
-                tempDb.execute("INSERT INTO BotLogs (BotId, CreateTime, Query) VALUES (%s,%s,%s)", (self.botid, datetime.now(), reply.content))
+                tempDb.execute("INSERT INTO BotLog (BotId, CreateTime, Query) VALUES (%s,%s,%s)", (self.botid, datetime.now(), reply.content))
             except Exception as e:
                 logger.error("insert into sql failed")
                 logger.exception(e)
