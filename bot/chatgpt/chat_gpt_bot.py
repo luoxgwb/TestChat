@@ -62,6 +62,10 @@ class ChatGPTBot(Bot, OpenAIImage):
         if context.type == ContextType.TEXT:
             logger.info("[CHATGPT] query={}".format(query))
 
+            if query == '剩余次数':
+                reply = Reply(ReplyType.TEXT, "总计次数{}次，当前剩余{}次".format(self.botlimitcount, self.botlimitcount - self.botCount))
+                return reply
+            
             session_id = context['session_id']
             reply = None
             clear_memory_commands = conf().get(
@@ -99,9 +103,9 @@ class ChatGPTBot(Bot, OpenAIImage):
                     "[CHATGPT] reply {} used 0 tokens.".format(reply_content))
             self.botCount += 1
             if (self.botlimitcount - self.botCount) < 50:
-                reply.content += "\r\n----------------\r\n总计次数{}次，剩余{}".format(self.botlimitcount, self.botlimitcount - self.botCount)
+                reply.content
             elif (self.botCount % 100) == 0:
-                reply.content += "\r\n----------------\r\n总计次数{}次，剩余{}".format(self.botlimitcount, self.botlimitcount - self.botCount)
+                reply.content
 
             try:
                 tempDb = self.db.cursor()
