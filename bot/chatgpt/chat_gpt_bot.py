@@ -61,10 +61,9 @@ class ChatGPTBot(Bot, OpenAIImage):
         # acquire reply content
         if context.type == ContextType.TEXT:
             logger.info("[CHATGPT] query={}".format(query))
-
-            if query == '剩余次数':
-                reply = Reply(ReplyType.TEXT, "总计次数{}次，当前剩余{}次".format(self.botlimitcount, self.botlimitcount - self.botCount))
-                return reply
+            print(type(query))
+            if query == '剩余次数' or query is "剩余次数":
+                return Reply(ReplyType.TEXT, "总计次数{}次，当前剩余{}次".format(self.botlimitcount, self.botlimitcount - self.botCount))
             
             session_id = context['session_id']
             reply = None
